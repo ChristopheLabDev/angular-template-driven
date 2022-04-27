@@ -1,0 +1,45 @@
+<p>Start editing to see some magic happen :)</p>
+
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+  <input type="text" name="firstName" ngModel />
+  <input type="text" name="lastName" ngModel />
+  <input type="text" name="email" ngModel />
+
+  <button type="submit">Envoie</button>
+</form>
+
+<!--
+  Pour une formulaire template driven : 
+  
+  1 - déclaration son formulaire en lui donnant un nom de cette manière : #nomDeVotreForm="ngForm". Le tout dans une balise ouvrante <form>
+  2 - Paramétrer ce qu'il se passe lorsque les données  du formulaire sont envoyées : 
+  (ngSubmit)="votreMethode(nomDeVotreForm)"
+  3 - Déclaration des <input> entre les balises de votre formulaire 
+  <form>
+    ici
+  </form>
+  et surout de les lier à l'aide de la directive ngModel et de lui donner un nom avec l'attribut 
+  name="nomDeVotreChamp"
+  ex : <input type="text" name="firstName" ngModel />
+  4 - Ajouter un bouton avec l'attribut type="submit" toujours entre les balises de votre formulaire 
+  5 - Pour pouvoir récupérer les valeurs des champs de notre formulaire on les retrouve dans l'objet value du formulaire et on y accède comme ça dans le .ts: 
+  nomDeParametre.value 
+
+-->
+
+<h2>Todo App</h2>
+
+<form (ngSubmit)="ajoutTache(todoForm)" #todoForm="ngForm">
+  <input type="text" name="task" ngModel required />
+  <button type="submit">Envoie</button>
+</form>
+<br />
+
+<!-- Parallèle avec Rest country sans framework 
+<form action="post">
+  <input type="text" id="email" required>
+  <input type="password" id="password" required>
+
+  <button type="submit">Connexion</button>
+</form>
+-->
